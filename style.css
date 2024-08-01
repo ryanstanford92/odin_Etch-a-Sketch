@@ -1,0 +1,6 @@
+.grid-container {
+    border: 1px solid black;
+    display: flex;
+    width: 160px;
+    height: 160px;
+}
