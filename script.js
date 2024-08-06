@@ -1,20 +1,27 @@
 let gridContainer = document.querySelector(".grid-container"); 
+createGrid(16);
 
 //create drawing grid 
-for (let index = 0; index < 16; index++) {
+function createGrid(resolution) {
 
-    let column = document.createElement("div");
+    let drawingArea = gridContainer.clientWidth; //width of drawing area
 
-    for (let index = 0; index < 16; index++) {
-        let squareDiv = document.createElement("div");
-        squareDiv.setAttribute("class", "child-div");
-        squareDiv.style.width = "30px";
-        squareDiv.style.height = "30px";
-        
-        column.appendChild(squareDiv);
-     }
-     
-     gridContainer.appendChild(column);
+    for (let index = 0; index < resolution; index++) {
+    
+        let column = document.createElement("div");
+    
+        for (let index = 0; index < resolution; index++) {
+            let squareDiv = document.createElement("div");
+            squareDiv.setAttribute("class", "child-div");
+            squareDiv.style.width = `${drawingArea/resolution}px`;
+            squareDiv.style.height = `${drawingArea/resolution}px`;
+            
+            column.appendChild(squareDiv);
+         }
+         
+         gridContainer.appendChild(column);
+    }
+    
 }
 
 
@@ -24,3 +31,15 @@ gridContainer.addEventListener("mouseover", (e) => {
         e.target.style.backgroundColor = "black";
     }
 });
+
+
+//prompt user to select drawing grid resolution
+let promptButton =  document.querySelector("button");
+promptButton.addEventListener("click", () => {
+    let userInput = prompt("Please enter a number between 16 and 100 for the grid resolution: ");
+
+    
+    gridContainer.replaceChildren(); //remove old grid
+
+    createGrid(userInput); //create new grid with user specified resolution
+})
