@@ -36,8 +36,12 @@ gridContainer.addEventListener("mouseover", (e) => {
 //prompt user to select drawing grid resolution
 let promptButton =  document.querySelector("button");
 promptButton.addEventListener("click", () => {
-    let userInput = prompt("Please enter a number between 16 and 100 for the grid resolution: ");
 
+    //validate user input
+    let userInput;
+    do {
+        userInput = prompt("Please enter a number between 16 and 100 for the grid resolution: ");
+    } while (userInput < 16 || userInput > 100 || isNaN(userInput));
     
     gridContainer.replaceChildren(); //remove old grid
 
