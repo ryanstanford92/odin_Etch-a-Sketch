@@ -1,5 +1,11 @@
+body {
+    background-color: rgb(223, 210, 191);
+}
+
 .grid-container {
-    border: 1px solid black;
+    border: 50px solid rgba(189, 10, 10, 0.935);
+    border-radius: 15px;
+    background-color: rgb(233, 221, 221);
     display: flex;
     width: 480px;
     height: 480px;
