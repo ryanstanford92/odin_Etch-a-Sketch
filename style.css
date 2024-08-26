@@ -2,6 +2,13 @@ body {
     background-color: rgb(223, 210, 191);
 }
 
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px;
+}
+
 .grid-container {
     border: 50px solid rgba(189, 10, 10, 0.935);
     border-radius: 15px;
@@ -9,5 +16,9 @@ body {
     display: flex;
     width: 480px;
     height: 480px;
-    margin: auto;
+    
+}
+
+.controls li {
+    list-style: none;
 }
