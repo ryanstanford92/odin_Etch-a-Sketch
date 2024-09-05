@@ -24,7 +24,6 @@ function createGrid(resolution) {
     
 }
 
-
 //fills cells of grid on hover
 gridContainer.addEventListener("mouseover", (e) => {
     if (e.target.getAttribute("class") == "child-div") {
@@ -32,18 +31,17 @@ gridContainer.addEventListener("mouseover", (e) => {
     }
 });
 
+//Use range slider to set resolution
+let resolutionSlider = document.querySelector("input.slider");
+let sliderValue = document.querySelector("span.slider-value");
+resolutionSlider.value = 16;
 
-//prompt user to select drawing grid resolution
-let promptButton =  document.querySelector("button");
-promptButton.addEventListener("click", () => {
+resolutionSlider.addEventListener("input", (e) => {
+    sliderValue.textContent = e.target.value;
 
-    //validate user input
-    let userInput;
-    do {
-        userInput = prompt("Please enter a number between 16 and 100 for the grid resolution: ");
-    } while (userInput < 16 || userInput > 100 || isNaN(userInput));
-    
     gridContainer.replaceChildren(); //remove old grid
 
-    createGrid(userInput); //create new grid with user specified resolution
-})
+    createGrid(e.target.value); //create new grid with user specified resolution
+});
+
+

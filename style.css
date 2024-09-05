@@ -22,3 +22,7 @@ body {
 .controls li {
     list-style: none;
 }
+
+input.slider {
+    width: 100px;
+}
