@@ -1,5 +1,7 @@
 let gridContainer = document.querySelector(".grid-container"); 
-createGrid(16);
+createGrid(16); //set initial grid resolution
+
+let isFillRainbow = false;
 
 //create drawing grid 
 function createGrid(resolution) {
@@ -24,10 +26,37 @@ function createGrid(resolution) {
     
 }
 
+//colors the the area in the grid that the mouse is over with random colors
+function fillRainbow(event) {
+
+    let red = (Math.floor(Math.random() * 255) +  1);
+    let blue = (Math.floor(Math.random() * 255) +  1);
+    let green = (Math.floor(Math.random() * 255) +  1);
+
+    if (event.target.getAttribute("class") == "child-div") {
+        event.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    }
+}
+
+let rainbowButton = document.querySelector("#rainbow");
+rainbowButton.addEventListener("click", () => {
+    if (isFillRainbow == false) {
+        isFillRainbow = true;
+    }
+    else {
+        isFillRainbow = false;
+    }
+})
+
 //fills cells of grid on hover
 gridContainer.addEventListener("mouseover", (e) => {
     if (e.target.getAttribute("class") == "child-div") {
-        e.target.style.backgroundColor = "black";
+        if (isFillRainbow) {
+            fillRainbow(e);
+        }
+        else {
+            e.target.style.backgroundColor = "black";
+        }
     }
 });
 
