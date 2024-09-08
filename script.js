@@ -38,14 +38,18 @@ function fillRainbow(event) {
     }
 }
 
-let rainbowButton = document.querySelector("#rainbow");
-rainbowButton.addEventListener("click", () => {
+function updateRainbowStatus() {
     if (isFillRainbow == false) {
         isFillRainbow = true;
     }
     else {
         isFillRainbow = false;
     }
+}
+
+let rainbowButton = document.querySelector("#rainbow");
+rainbowButton.addEventListener("click", () => {
+    updateRainbowStatus();
 })
 
 //fills cells of grid on hover
