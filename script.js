@@ -80,8 +80,10 @@ resolutionSlider.addEventListener("input", (e) => {
 //color selection
 let colorPicker = document.querySelector("input#color");
 let selectedColor = "black";
+colorPicker.value = selectedColor;
 colorPicker.addEventListener("input", (e) => {
     selectedColor = e.target.value;
+    updateRainbowStatus();
 });
 
 
