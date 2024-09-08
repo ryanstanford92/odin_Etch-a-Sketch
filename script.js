@@ -83,7 +83,7 @@ let selectedColor = "black";
 colorPicker.value = selectedColor;
 colorPicker.addEventListener("input", (e) => {
     selectedColor = e.target.value;
-    updateRainbowStatus();
+    isFillRainbow = false;
 });
 
 //clear drawing area
