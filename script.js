@@ -86,5 +86,12 @@ colorPicker.addEventListener("input", (e) => {
     updateRainbowStatus();
 });
 
+//clear drawing area
+let clearButton = document.querySelector("button#clear");
+clearButton.addEventListener("click", () => {
+    gridContainer.replaceChildren();
+    createGrid(resolutionSlider.value);
+});
+
 
 
