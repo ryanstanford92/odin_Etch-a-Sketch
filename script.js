@@ -55,7 +55,7 @@ gridContainer.addEventListener("mouseover", (e) => {
             fillRainbow(e);
         }
         else {
-            e.target.style.backgroundColor = "black";
+            e.target.style.backgroundColor = selectedColor;
         }
     }
 });
@@ -72,5 +72,13 @@ resolutionSlider.addEventListener("input", (e) => {
 
     createGrid(e.target.value); //create new grid with user specified resolution
 });
+
+//color selection
+let colorPicker = document.querySelector("input#color");
+let selectedColor = "black";
+colorPicker.addEventListener("input", (e) => {
+    selectedColor = e.target.value;
+});
+
 
 
